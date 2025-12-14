@@ -1,0 +1,148 @@
+import express from "express";
+import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+import { connectDB } from "./config/db.js";
+import Product from "./models/Product.js";
+
+import CategoryFilter from "./models/Filter.js";
+import authRoutes from "./routes/authRoutes.js";
+import productRoutes from "./routes/productRoutes.js";
+import cartRoutes from "./routes/cartRoutes.js";
+import addressRoutes from "./routes/addressRoutes.js";
+import paymentRoutes from "./routes/paymentRoutes.js";
+import webhookRoutes from "./routes/webhookRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
+import otpRoutes from "./routes/otpRoutes.js";
+
+dotenv.config();
+connectDB();
+
+const app = express();
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    // origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
+
+/* ------------------------ PARSERS ------------------------ */
+app.use(express.json({ limit: "20mb" }));
+app.use(express.urlencoded({ limit: "20mb", extended: true }));
+app.use(cookieParser());
+
+
+// setInterval(() => {
+//   fetch("https://ekart-1-lyec.onrender.com")
+//     .then(() => {
+//       console.log("ping the server");
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// }, 5 * 60 * 1000);
+
+// app.get("/", (req, res) => {
+//   res.status(200).json({
+//     success: true,
+//     message: "server awaked",
+//   });
+// });
+
+
+/* ------------------------ WEBHOOK (must come BEFORE stripe JSON parsing) ------------------------ */
+app.use("/api", webhookRoutes);
+// ⚠️ This must stay above other routes but after JSON parser
+
+/* ------------------------ ROUTES ------------------------ */
+
+// app.post("/api/products/bulk", async (req, res) => {
+//   try {
+//     const {products} = req.body;
+
+//     if (!Array.isArray(products)) {
+//       return res.status(400).json({
+//         success: false,
+//         message: "Request body must be an array of products",
+//       });
+//     }
+
+//     const inserted = await Product.insertMany(products, {
+//       ordered: false, // skip duplicates, don't fail whole batch
+//     });
+
+//     res.status(201).json({
+//       success: true,
+//       insertedCount: inserted.length,
+//     });
+//   } catch (error) {
+//     // duplicate key errors are common in bulk inserts
+//     if (error.code === 11000) {
+//       return res.status(201).json({
+//         success: true,
+//         message: "Some products already exist",
+//       });
+//     }
+
+//     res.status(500).json({
+//       success: false,
+//       error: error.message,
+//     });
+//   }
+// });
+
+
+app.post("/api/category-filters/bulk", async (req, res) => {
+  try {
+    const payload = req.body;
+
+    if (!Array.isArray(payload)) {
+      return res.status(400).json({
+        success: false,
+        message: "Request body must be an array",
+      });
+    }
+
+    const operations = payload.map((item) => {
+      if (!item.category || !item.filters) {
+        throw new Error("Each item must have category and filters");
+      }
+
+      return {
+        updateOne: {
+          filter: { category: item.category },
+          update: { $set: { filters: item.filters } },
+          upsert: true,
+        },
+      };
+    });
+
+    await CategoryFilter.bulkWrite(operations);
+
+    res.status(201).json({
+      success: true,
+      insertedOrUpdated: payload.length,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+});
+
+
+app.use("/api/auth", authRoutes);
+app.use("/api/products", productRoutes);
+app.use("/api/cart", cartRoutes);
+app.use("/api/address", addressRoutes);
+app.use("/api/stripe", paymentRoutes);
+app.use("/api/orders", orderRoutes);
+app.use("/api/otp", otpRoutes);
+
+/* ------------------------ SERVER ------------------------ */
+app.listen(process.env.PORT, () =>
+  console.log(`Server running on port ${process.env.PORT}`)
+);
