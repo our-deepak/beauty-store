@@ -22,7 +22,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://beauty-store-black.vercel.app",
+    origin: "https://beauty-store-deepak.vercel.app",
     // origin: "http://localhost:5173",
     credentials: true,
   })
