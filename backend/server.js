@@ -34,22 +34,22 @@ app.use(express.urlencoded({ limit: "20mb", extended: true }));
 app.use(cookieParser());
 
 
-// setInterval(() => {
-//   fetch("https://ekart-1-lyec.onrender.com")
-//     .then(() => {
-//       console.log("ping the server");
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// }, 5 * 60 * 1000);
+setInterval(() => {
+  fetch("https://beauty-store-eiu0.onrender.com")
+    .then(() => {
+      console.log("ping the server");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}, 14 * 60 * 1000);
 
-// app.get("/", (req, res) => {
-//   res.status(200).json({
-//     success: true,
-//     message: "server awaked",
-//   });
-// });
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "server awaked",
+  });
+});
 
 
 /* ------------------------ WEBHOOK (must come BEFORE stripe JSON parsing) ------------------------ */
