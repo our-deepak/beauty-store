@@ -1,7 +1,7 @@
 // src/components/Navbar.jsx
 import React, { useEffect, useState, useContext } from "react";
 import styles from "../Modules/Navbar.module.css";
-import Logo from "../assets/Logo.jpg";
+import Logo from "../assets/logo.jpg";
 import { AppContext } from "../Context/appContext";
 import { NavLink, useNavigate } from "react-router-dom";
 import Suggestionbox from "./Suggesionbox";
