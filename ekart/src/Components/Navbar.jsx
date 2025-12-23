@@ -187,20 +187,7 @@ const Navbar = () => {
             About
           </p>
 
-          <p
-            className={
-              activelink === "Showcase"
-                ? styles.activeLink
-                : styles.inactiveLink
-            }
-            onClick={() => {
-              localStorage.setItem("activelink", "Showcase");
-              navigate("/showcase");
-              setMenuOpen(false);
-            }}
-          >
-            Showcase
-          </p>
+          
 
           <div className={styles.moblileCartProfileItem}>
             {isLoggedIn && (
