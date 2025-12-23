@@ -1,6 +1,6 @@
 import Navbar from "../../Components/Navbar";
-import styles from "../../Modules/About.module.css";
 import { useEffect } from "react";
+import { Phone, Linkedin, MessageCircle } from "lucide-react";
 
 const About = () => {
   useEffect(() => {
@@ -8,195 +8,83 @@ const About = () => {
   }, []);
 
   return (
-    <>
-      <Navbar />
+    <div className="min-h-screen flex flex-col bg-white text-gray-800">
+      <Navbar/>
 
-      <section className={styles.aboutSection}>
-        <div className={styles.wrapper}>
-          {/* LEFT COLUMN */}
-          <div className={styles.leftColumn}>
-            {/* ABOUT ME */}
-            <div className={styles.card}>
-              <h2 className={styles.cardTitle}>About Me</h2>
-              <p className={styles.cardText}>
-                Hi, I'm <span className={styles.highlight}>Gajanand Mali</span>,
-                a passionate{" "}
-                <span className={styles.highlight}>Full-Stack Developer</span>
-                specializing in MERN stack. I enjoy building scalable,
-                real-world applications and writing clean, efficient code.
-              </p>
+      <main className="flex-1 max-w-5xl mx-auto px-6 py-16 text-center mt-12">
+        {" "}
+        <h1 className="text-4xl font-bold text-pink-600 mb-6">
+          {" "}
+          About Our Beauty Store{" "}
+        </h1>{" "}
+        <p className="text-lg leading-relaxed mb-4">
+          {" "}
+          Welcome to <span className="font-semibold">GlowCart</span>, your
+          trusted destination for premium beauty, skincare, and cosmetic
+          products. We believe beauty is personal, expressive, and empowering.{" "}
+        </p>{" "}
+        <p className="text-lg leading-relaxed mb-4">
+          {" "}
+          Our platform brings together authentic beauty products from trusted
+          brands, ensuring quality, safety, and satisfaction with every order.{" "}
+        </p>{" "}
+        <p className="text-lg leading-relaxed mb-10">
+          {" "}
+          From everyday essentials to luxury collections, we focus on genuine
+          products, seamless shopping, and fast delivery — because your beauty
+          deserves the best.{" "}
+        </p>{" "}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto text-left">
+          {" "}
+          <div className="flex items-center gap-3">
+            {" "}
+            <span className="text-pink-600 text-xl">✔</span>{" "}
+            <span>100% Genuine Products</span>{" "}
+          </div>{" "}
+          <div className="flex items-center gap-3">
+            {" "}
+            <span className="text-pink-600 text-xl">✔</span>{" "}
+            <span>Trusted Beauty Brands</span>{" "}
+          </div>{" "}
+          <div className="flex items-center gap-3">
+            {" "}
+            <span className="text-pink-600 text-xl">✔</span>{" "}
+            <span>Secure Payments</span>{" "}
+          </div>{" "}
+          <div className="flex items-center gap-3">
+            {" "}
+            <span className="text-pink-600 text-xl">✔</span>{" "}
+            <span>Fast & Reliable Delivery</span>{" "}
+          </div>{" "}
+        </div>{" "}
+      </main>
 
-              <p className={styles.cardText}>
-                I’m a{" "}
-                <span className={styles.highlight}>B.Tech CSE (2021–2025)</span>
-                graduate with strong fundamentals in
-                <span className={styles.highlight}>
-                  {" "}
-                  DSA, JavaScript, React, Node.js, Express, MongoDB.
-                </span>
-              </p>
-            </div>
+      <footer className="w-full bg-gray-900 text-white px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p className="text-sm">
+          Developed by <span className="font-semibold">Deepak Kumar Gupta</span>
+        </p>
 
-            {/* EXPERIENCE */}
-            <div className={styles.card}>
-              <h2 className={styles.cardTitle}>Experience</h2>
-              <div className={styles.expItem}>
-                <h3 className={styles.expRole}>Frontend Developer Intern</h3>
-                <p className={styles.expCompany}>
-                  CODRU Education (May–July 2024)
-                </p>
-                <p className={styles.expDesc}>
-                  Built an interactive educational blog forum using React.js
-                  with real-time discussions, Pub/Sub integration & seamless API
-                  collaboration.
-                </p>
-              </div>
-            </div>
-
-            {/* CODING PROFILES */}
-            <div className={styles.card}>
-              <h2 className={styles.cardTitle}>Coding Profiles</h2>
-
-              <ul className={styles.linkList}>
-                <li>
-                  <a
-                    href="https://leetcode.com/u/RandomProgrammerGk/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className={styles.link}
-                  >
-                    LeetCode
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.geeksforgeeks.org/user/gkmal3frg/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className={styles.link}
-                  >
-                    GeeksforGeeks
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.naukri.com/code360/profile/Nobisuke"
-                    target="_blank"
-                    rel="noreferrer"
-                    className={styles.link}
-                  >
-                    Coding Ninjas
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* RIGHT COLUMN */}
-          <div className={styles.rightColumn}>
-            {/* SKILLS */}
-            <div className={styles.card}>
-              <h2 className={styles.cardTitle}>Tech Skills</h2>
-              <div className={styles.chipContainer}>
-                <span className={styles.chip}>JavaScript</span>
-                <span className={styles.chip}>TypeScript</span>
-                <span className={styles.chip}>C++</span>
-                <span className={styles.chip}>React.js</span>
-                <span className={styles.chip}>Node.js</span>
-                <span className={styles.chip}>Express.js</span>
-                <span className={styles.chip}>MongoDB</span>
-                <span className={styles.chip}>React Native</span>
-                <span className={styles.chip}>Socket.IO</span>
-                <span className={styles.chip}>Tailwind CSS</span>
-                <span className={styles.chip}>BootStrap</span>
-                <span className={styles.chip}>Stripe</span>
-              </div>
-            </div>
-
-            {/* PROJECTS */}
-            <div className={styles.card}>
-              <h2 className={styles.cardTitle}>Highlighted Projects</h2>
-
-              <div className={styles.projectBox}>
-                <h4 className={styles.projectTitle}>
-                  <a
-                    href="https://drive.usercontent.google.com/download?id=1OuDn8oq43GRT3fj7hK2GPA6idzu3yc10&export=download&authuser=0"
-                    target="_blank"
-                    rel="noreferrer"
-                    className={styles.projectLink}
-                  >
-                    Expense Tracker App ↗
-                  </a>
-                </h4>
-                <p className={styles.projectDesc}>
-                  Cross-platform app with JWT auth, email verification,
-                  analytics & smooth UX (React Native + Node).
-                </p>
-              </div>
-
-              <div className={styles.projectBox}>
-                <h4 className={styles.projectTitle}>
-                  <a
-                    href="http://localhost:5173"
-                    target="_blank"
-                    rel="noreferrer"
-                    className={styles.projectLink}
-                  >
-                    Real-Time ChatApp ↗
-                  </a>
-                </h4>
-                <p className={styles.projectDesc}>
-                  Real-time chat, seen status, Cloudinary uploads, JWT auth,
-                  responsive UI using MERN + Socket.IO.
-                </p>
-              </div>
-            </div>
-
-            {/* SOCIAL LINKS */}
-            <div className={styles.card}>
-              <h2 className={styles.cardTitle}>Connect With Me</h2>
-
-              <div className={styles.linksRow}>
-                <a
-                  href="https://github.com/Futurestar7891"
-                  className={styles.primaryBtn}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  GitHub
-                </a>
-
-                <a
-                  href="https://linkedin.com/in/gajanand-mali-100ab0265"
-                  className={styles.secondaryBtn}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  LinkedIn
-                </a>
-
-                <a
-                  href="https://wa.me/916377813239"
-                  className={styles.secondaryBtn}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  WhatsApp
-                </a>
-                <a
-                  href="mailto:your-email@example.com"
-                  className={styles.secondaryBtn}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Email
-                </a>
-              </div>
-            </div>
-          </div>
+        <div className="flex items-center gap-5">
+          <a href="tel:8441006695" aria-label="Call">
+            <Phone size={22} />
+          </a>
+          <a
+            href="https://wa.me/918441006695"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <MessageCircle size={22} />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/our-deepak"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Linkedin size={22} />
+          </a>
         </div>
-      </section>
-    </>
+      </footer>
+    </div>
   );
 };
 

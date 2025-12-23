@@ -4,7 +4,7 @@ import faviconPlugin from "vite-plugin-favicon";
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  plugins: [react(), faviconPlugin("./public/favicon.png"),tailwindcss(),],
+  plugins: [react(), faviconPlugin("./public/favicon.svg"),tailwindcss(),],
   server: {
     historyApiFallback: true,
   },

@@ -20,7 +20,6 @@ const ResetPassword = lazy(() =>
   import("./Screen/publicScreens/ResetPassword")
 );
 const About=lazy(()=>import("./Screen/publicScreens/About"));
-const Showcase=lazy(()=>import("./Screen/publicScreens/Showcase"))
 const Settings = lazy(() => import("./Screen/ProtectedScreens/Settings"));
 
 import { fetchProducts, fetchFilters } from "./Utils/Products";
@@ -105,7 +104,6 @@ function App() {
           {/* PUBLIC ROUTES */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About/>}/>
-          <Route path="/showcase" element={<Showcase/>}/>
           <Route path="/product/detail/:id" element={<ProductDetail />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />

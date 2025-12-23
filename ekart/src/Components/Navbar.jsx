@@ -1,7 +1,7 @@
 // src/components/Navbar.jsx
 import React, { useEffect, useState, useContext } from "react";
 import styles from "../Modules/Navbar.module.css";
-import Logo from "../assets/Logo.png";
+import Logo from "../assets/Logo.jpg";
 import { AppContext } from "../Context/appContext";
 import { NavLink, useNavigate } from "react-router-dom";
 import Suggestionbox from "./Suggesionbox";
@@ -108,17 +108,7 @@ const Navbar = () => {
               About
             </NavLink>
 
-            <NavLink
-              onClick={() => localStorage.setItem("activelink", "Showcase")}
-              to="/showcase"
-              className={
-                activelink === "Showcase"
-                  ? styles.activeLink
-                  : styles.inactiveLink
-              }
-            >
-              Showcase
-            </NavLink>
+           
           </div>
 
           {/* USER SECTION */}

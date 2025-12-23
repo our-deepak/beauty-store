@@ -1,120 +1,75 @@
-@reference "tailwindcss";
-
-/* MAIN SECTION WITH FIXED HEIGHT */
-.aboutSection {
-  height: calc(100vh - 70px);
-  @apply w-full flex justify-center items-start bg-gray-100 mt-[70px] py-[10px];
-}
-
-/* WRAPPER – MOBILE = SINGLE COLUMN SCROLL | DESKTOP = GRID */
-.wrapper {
-  @apply w-full max-w-7xl h-full px-4 gap-6 overflow-y-auto;
-
-  /* MOBILE defaults to single column with unified scroll */
+.about-container {
   display: flex;
   flex-direction: column;
-
-  /* DESKTOP – 2 columns */
-  @apply md:grid md:grid-cols-2 md:gap-6 md:overflow-hidden;
+  background: #fff;
+  color: #333;
+  margin-top: 10px;
 }
 
-/* LEFT & RIGHT COLUMN – SCROLL ONLY ON DESKTOP */
-.leftColumn,
-.rightColumn {
-  @apply w-full flex flex-col gap-6;
-
-  /* No scroll on mobile */
-  overflow: visible;
-
-  /* Desktop: each column scrolls independently */
-  @apply md:overflow-y-auto md:pb-6;
+.about-content {
+  flex: 1;
+  max-width: 900px;
+  margin: auto;
+  padding: 3rem 1.5rem;
+  text-align: center;
 }
 
-/* CARD */
-.card {
-  @apply bg-white rounded-xl shadow-md border border-gray-200 p-6;
+.about-content h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: #d63384;
 }
 
-/* TITLES */
-.cardTitle {
-  @apply text-2xl font-bold text-gray-900 mb-3;
+.about-content p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
 }
 
-/* TEXT */
-.cardText {
-  @apply text-gray-700 text-base leading-relaxed mb-2;
+.highlights {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  font-weight: 500;
 }
 
-.highlight {
-  @apply text-blue-600 font-semibold;
+/* Footer */
+.developer-footer {
+  background: #111;
+  color: #fff;
+  padding: 0.9rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-/* EXPERIENCE */
-.expItem {
-  @apply mb-3;
+.developer-name {
+  font-size: 0.9rem;
 }
 
-.expRole {
-  @apply text-lg font-semibold text-gray-900;
+.social-icons a {
+  color: #fff;
+  margin-left: 1rem;
+  font-size: 1.2rem;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.expCompany {
-  @apply text-sm text-gray-500;
+.social-icons a:hover {
+  color: #d63384;
+  transform: scale(1.15);
 }
 
-.expDesc {
-  @apply text-gray-700 text-sm mt-1;
-}
+/* Mobile */
+@media (max-width: 600px) {
+  .developer-footer {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
 
-/* CODING PROFILES */
-.linkList {
-  @apply list-disc pl-5 space-y-1 text-gray-700;
+  .social-icons a {
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+  }
 }
-
-.link {
-  @apply text-blue-600 hover:underline;
-}
-
-/* SKILLS */
-.chipContainer {
-  @apply flex flex-wrap gap-2 mt-2;
-}
-
-.chip {
-  @apply text-sm px-3 py-1 rounded-full bg-blue-50 
-         text-blue-700 border border-blue-200;
-}
-
-/* PROJECTS */
-.projectBox {
-  @apply mb-4;
-}
-
-.projectTitle {
-  @apply text-lg font-semibold text-gray-900;
-}
-
-.projectDesc {
-  @apply text-gray-700 text-sm mt-1;
-}
-
-.projectLink {
-  @apply text-blue-600 hover:underline cursor-pointer;
-}
-
-/* BUTTONS */
-/* BUTTONS */
-.linksRow {
-  @apply flex flex-wrap gap-4 mt-3 justify-start;
-}
-
-.primaryBtn {
-  @apply bg-blue-600 text-white px-5 py-2 rounded-lg 
-         font-medium shadow hover:bg-blue-700 transition;
-}
-
-.secondaryBtn {
-  @apply bg-white border border-gray-300 text-gray-800 px-5 py-2 
-         rounded-lg font-medium shadow hover:bg-gray-100 transition;
-}
-

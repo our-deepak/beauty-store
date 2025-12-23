@@ -76,7 +76,7 @@
 }
 
 .activeLink {
-  @apply text-blue-600 text-[17px] font-semibold cursor-pointer;
+  @apply text-pink-600 text-[17px] font-semibold cursor-pointer;
 }
 
 /* =========================================================
@@ -112,7 +112,7 @@
 .profileLetter,
 .mobileProfileLetter {
   @apply w-[40px] h-[40px] md:w-[50px] md:h-[50px]
-         rounded-full bg-blue-600 text-white
+         rounded-full bg-pink-600 text-white
          flex items-center justify-center
          text-lg font-bold;
 }
@@ -184,7 +184,7 @@
 /* Mobile Sign-in */
 .mobileItemButton {
   @apply w-full py-2 px-3 
-         bg-blue-600 text-white rounded-md text-center 
+         bg-pink-600 text-white rounded-md text-center 
          text-base font-medium 
-         hover:bg-blue-700 transition;
+         hover:bg-pink-700 transition;
 }
